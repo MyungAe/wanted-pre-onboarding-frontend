@@ -30,7 +30,7 @@ function Todo({ id, isCompleted, todo }) {
         <label>
           <input
             type="checkbox"
-            checked={isCompleted}
+            defaultChecked={isCompleted}
             onClick={() => updateTodo(id, todo, isCompleted)}
           />
           {isEditTodo ? (
