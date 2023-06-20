@@ -14,7 +14,8 @@ function Todo() {
 
   const createTodo = async () => {
     const response = await api.post('/todos', { todo: newTodo });
-    console.log(response);
+
+    if (response.status === 201) getTodo();
   };
 
   const onSubmitHandler = e => {
@@ -40,11 +41,13 @@ function Todo() {
           type="text"
           id="todoInput"
           onChange={newTodoHandler}
+          data-testid="new-todo-input"
         />
         <input
           type="submit"
           value="추가"
           onClick={onSubmitHandler}
+          data-testid="new-todo-add-button"
         />
       </form>
       <ul>
