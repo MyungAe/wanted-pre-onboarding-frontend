@@ -10,13 +10,9 @@
 - 프로젝트의 실행 방법 :
 - 배포 링크 :
 
-### 사용 가능 라이브러리
+### 사용한 라이브러리
 
-- React Router
-- HTTP Client 라이브러리(Axios 등)
-- 스타일링 관련 라이브러리(Sass, Styled Components, Emotion, tailwind 등)
-- 아이콘 등 UI 관련 라이브러리(Font-Awesome, React-Icons, Bootstrap 등)
-- 기능과 직접적인 연관이 없는 설정관련 라이브러리(craco, dotenv, typescript, testing library 등)
+- React Router, axios, styled-components
 
 ## 과제 1번. 로그인/회원가입
 
