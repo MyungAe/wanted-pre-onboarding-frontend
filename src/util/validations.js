@@ -15,6 +15,5 @@ const isCorrectPW = password => {
 };
 
 export const isSuccess = statusCode => {
-  console.log(statusCode, Math.floor(statusCode / 100));
   if (Math.floor(statusCode / 100) === 2) return true;
 };
