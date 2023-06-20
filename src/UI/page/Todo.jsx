@@ -42,6 +42,11 @@ function Todo() {
     if (response.status === 200) getTodo();
   };
 
+  const deleteTodo = async id => {
+    const response = await api.delete(`/todos/${id}`);
+    if (response.status === 204) getTodo();
+  };
+
   return (
     <>
       <form>
@@ -72,7 +77,12 @@ function Todo() {
                 />
                 <span>{todo.todo}</span>
                 <button data-testid="modify-button">수정</button>
-                <button data-testid="delete-button">삭제</button>
+                <button
+                  data-testid="delete-button"
+                  onClick={() => deleteTodo(todo.id)}
+                >
+                  삭제
+                </button>
               </label>
             </li>
           );
