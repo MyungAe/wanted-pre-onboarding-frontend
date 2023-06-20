@@ -3,19 +3,15 @@ import useInput from '../../hooks/useInput';
 import Todo from '../components/Todo';
 import useTodo from '../../hooks/useTodo';
 import { Post } from '../../api/api';
-import useRedirect from '../../hooks/useRedirect';
 
 function TodoList() {
-  useRedirect('/signin');
-
+  const [todos, getTodo] = useTodo();
   const [newTodo, newTodoHandler] = useInput('');
 
   const onSubmitHandler = e => {
     e.preventDefault();
     Post('/todos', { todo: newTodo }).then(() => getTodo());
   };
-
-  const [todos, getTodo] = useTodo();
 
   return (
     <>

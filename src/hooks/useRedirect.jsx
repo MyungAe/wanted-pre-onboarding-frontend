@@ -5,7 +5,7 @@ function useRedirect(URL) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!localStorage.getItem('access_token')) navigate(URL);
+    if (localStorage.getItem('access_token')) navigate(URL);
   }, []);
 
   return navigate;
