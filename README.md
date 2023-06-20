@@ -86,5 +86,6 @@
 
 - [x] Home 컴포넌트 구현 및 라우터 적용
 - [x] Todo 컴포넌트 내 api 요청 성공 시 UI도 바로 반영되도록 수정
-- [x] getTodo 요청, Todo 상태, 로딩 로직을 커스텀 훅으로 편입
+- [x] getTodo 요청, Todo 상태, 로딩 로직을 커스텀 훅으로 분리
 - [x] api 호출 로직 api.js로 이동, async/await을 promise로 수정
+- [x] 리다이렉트 및 useNavigate 로직 커스텀 훅으로 분리

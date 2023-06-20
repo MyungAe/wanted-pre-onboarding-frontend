@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import useInput from '../../hooks/useInput';
 import Todo from '../components/Todo';
 import useTodo from '../../hooks/useTodo';
 import { Post } from '../../api/api';
+import useRedirect from '../../hooks/useRedirect';
 
 function TodoList() {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!localStorage.getItem('access_token')) navigate('/signin');
-  }, []);
+  useRedirect('/signin');
 
   const [newTodo, newTodoHandler] = useInput('');
 

@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useInput from '../../hooks/useInput';
 import { isCorrectAccount } from '../../util/validations';
 import { Post } from '../../api/api';
-import { useNavigate } from 'react-router-dom';
+import useRedirect from '../../hooks/useRedirect';
 
 function Signup() {
   const [id, IDHandler] = useInput('');
   const [pw, PWHandler] = useInput('');
 
-  const navigate = useNavigate();
+  const navigate = useRedirect('/todo');
 
   const onSubmitHandler = e => {
     e.preventDefault();
@@ -23,10 +23,6 @@ function Signup() {
         alert(error.response.data.message);
       });
   };
-
-  useEffect(() => {
-    if (localStorage.getItem('access_token')) navigate('/todo');
-  }, []);
 
   return (
     <form>
