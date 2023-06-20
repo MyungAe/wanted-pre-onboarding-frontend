@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import api from '../../api/api';
 import useInput from '../../hooks/useInput';
 import Todo from '../components/Todo';
+import { isSuccess } from '../../util/validations';
 
 function TodoList() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function TodoList() {
   const createTodo = async () => {
     const response = await api.post('/todos', { todo: newTodo });
 
-    if (response.status === 201) getTodo();
+    if (isSuccess(response.status)) getTodo();
   };
 
   const onSubmitHandler = e => {

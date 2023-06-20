@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import api from '../../api/api';
 import useInput from '../../hooks/useInput';
+import { isSuccess } from '../../util/validations';
 
 function Todo({ id, isCompleted, todo }) {
   const [isEditTodo, setIsEditTodo] = useState(false);
@@ -14,12 +15,12 @@ function Todo({ id, isCompleted, todo }) {
       todo,
       isCompleted: !isCompleted,
     });
-    if (response.status === 200) getTodo();
+    if (isSuccess(response.status)) getTodo();
   };
 
   const deleteTodo = async id => {
     const response = await api.delete(`/todos/${id}`);
-    if (response.status === 204) getTodo();
+    if (isSuccess(response.status)) getTodo();
   };
 
   const [modifyTodo, modifyTodoHandler] = useInput(todo);
@@ -49,7 +50,7 @@ function Todo({ id, isCompleted, todo }) {
                       isCompleted,
                     })
                     .then(response => {
-                      if (response.status === 200) setIsEditTodo(false);
+                      if (isSuccess(response.status)) setIsEditTodo(false);
                     });
                 }}
               >

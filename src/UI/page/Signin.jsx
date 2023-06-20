@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import useInput from '../../hooks/useInput';
 import { useNavigate } from 'react-router-dom';
 import api from '../../api/api';
+import { isSuccess } from '../../util/validations';
 
 function Signin() {
   const [id, IDHandler] = useInput('');
@@ -17,7 +18,7 @@ function Signin() {
 
     localStorage.setItem('access_token', response.data.access_token);
 
-    if (response.status === 200) navigate('/todo');
+    if (isSuccess(response.status)) navigate('/todo');
   };
 
   const onSubmitHandler = e => {

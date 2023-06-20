@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import useInput from '../../hooks/useInput';
-import { isCorrectAccount } from '../../util/validations';
+import { isCorrectAccount, isSuccess } from '../../util/validations';
 import api from '../../api/api';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ function Signup() {
       password: pw,
     });
 
-    if (response.status === 201) navigate('/signin');
+    if (isSuccess(response.status)) navigate('/signin');
   };
 
   const onSubmitHandler = e => {

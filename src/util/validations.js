@@ -13,3 +13,7 @@ const isCorrectPW = password => {
   if (password.length > 7) return true;
   return false;
 };
+
+export const isSuccess = statusCode => {
+  if (Math.floor(statusCode / 100 === 2)) return true;
+};
