@@ -34,6 +34,14 @@ function Todo() {
     setTodos(response.data);
   };
 
+  const updateTodo = async (id, todo, isCompleted) => {
+    const response = await api.put(`/todos/${id}`, {
+      todo,
+      isCompleted: !isCompleted,
+    });
+    if (response.status === 200) getTodo();
+  };
+
   return (
     <>
       <form>
@@ -57,7 +65,10 @@ function Todo() {
               <label>
                 <input
                   type="checkbox"
-                  checked={todo.ischecked}
+                  checked={todo.isCompleted}
+                  onClick={() =>
+                    updateTodo(todo.id, todo.todo, todo.isCompleted)
+                  }
                 />
                 <span>{todo.todo}</span>
               </label>
