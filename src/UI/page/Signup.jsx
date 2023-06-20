@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import useInput from '../../hooks/useInput';
-import { isCorrectAccount, isSuccess } from '../../util/validations';
-import api from '../../api/api';
+import { isCorrectAccount } from '../../util/validations';
+import { Post } from '../../api/api';
 import { useNavigate } from 'react-router-dom';
 
 function Signup() {
@@ -10,22 +10,18 @@ function Signup() {
 
   const navigate = useNavigate();
 
-  const post = async () =>
-    await api
-      .post('/auth/signup', {
-        email: id,
-        password: pw,
-      })
-      .then(response => {
-        if (isSuccess(response.status)) navigate('/signin');
+  const onSubmitHandler = e => {
+    e.preventDefault();
+    Post('/auth/signup', {
+      email: id,
+      password: pw,
+    })
+      .then(() => {
+        navigate('/signin');
       })
       .catch(error => {
         alert(error.response.data.message);
       });
-
-  const onSubmitHandler = e => {
-    e.preventDefault();
-    post();
   };
 
   useEffect(() => {

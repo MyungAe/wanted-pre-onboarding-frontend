@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../../api/api';
 import useInput from '../../hooks/useInput';
 import Todo from '../components/Todo';
-import { isSuccess } from '../../util/validations';
 import useTodo from '../../hooks/useTodo';
+import { Post } from '../../api/api';
 
 function TodoList() {
   const navigate = useNavigate();
@@ -15,14 +14,9 @@ function TodoList() {
 
   const [newTodo, newTodoHandler] = useInput('');
 
-  const createTodo = async () => {
-    const response = await api.post('/todos', { todo: newTodo });
-    if (isSuccess(response.status)) getTodo();
-  };
-
   const onSubmitHandler = e => {
     e.preventDefault();
-    createTodo();
+    Post('/todos', { todo: newTodo }).then(() => getTodo());
   };
 
   const [todos, getTodo] = useTodo();

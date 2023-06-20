@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import api from '../api/api';
+import { Get } from '../api/api';
 
 function useTodo() {
   const [todos, setTodos] = useState([]);
@@ -8,9 +8,10 @@ function useTodo() {
     getTodo();
   }, []);
 
-  const getTodo = async () => {
-    const response = await api.get('/todos');
-    setTodos(response.data);
+  const getTodo = () => {
+    Get('/todos').then(response => {
+      setTodos(response.data);
+    });
   };
 
   return [todos, getTodo];

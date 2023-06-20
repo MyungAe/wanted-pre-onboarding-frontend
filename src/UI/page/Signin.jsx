@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import useInput from '../../hooks/useInput';
 import { useNavigate } from 'react-router-dom';
-import api from '../../api/api';
-import { isSuccess } from '../../util/validations';
+import { Post } from '../../api/api';
 
 function Signin() {
   const [id, IDHandler] = useInput('');
@@ -10,20 +9,15 @@ function Signin() {
 
   const navigate = useNavigate();
 
-  const post = async () => {
-    const response = await api.post('/auth/signin', {
-      email: id,
-      password: pw,
-    });
-
-    localStorage.setItem('access_token', response.data.access_token);
-
-    if (isSuccess(response.status)) navigate('/todo');
-  };
-
   const onSubmitHandler = e => {
     e.preventDefault();
-    post();
+    Post('/auth/signin', {
+      email: id,
+      password: pw,
+    }).then(response => {
+      localStorage.setItem('access_token', response.data.access_token);
+      navigate('/todo');
+    });
   };
 
   useEffect(() => {

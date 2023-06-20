@@ -10,4 +10,18 @@ api.interceptors.request.use(config => {
   return config;
 });
 
-export default api;
+export const Get = URL => {
+  return api.get(URL);
+};
+
+export const Post = (URL, body) => {
+  return api.post(URL, body);
+};
+
+export const Put = (URL, body) => {
+  return api.put(URL, body);
+};
+
+export const Delete = URL => {
+  return api.delete(URL);
+};
