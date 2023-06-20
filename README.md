@@ -1,18 +1,15 @@
 # 원티드 프리온보딩 프론트엔드 사전과제
 
-## Backend API
-
-- https://www.pre-onboarding-selection-task.shop/
-
 ### 지원자 소개
 
 - 지원자의 성명 : 엄진식
-- 프로젝트의 실행 방법 :
-- 배포 링크 :
+- 프로젝트 실행 방법 : glt clone - yarn - yarn start
+- 배포 링크 : https://myungae.github.io/wanted-pre-onboarding-frontend/
+- 소감 : 공고를 너무 늦게 봤네요.. 기능만 후다닥 만들어봤습니다!!
 
 ### 사용한 라이브러리
 
-- React Router, axios, styled-components
+- React Router, axios
 
 ## 과제 1번. 로그인/회원가입
 
