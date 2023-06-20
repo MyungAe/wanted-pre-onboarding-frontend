@@ -16,16 +16,6 @@
 
 ## 과제 1번. 로그인/회원가입
 
-### 1번 공통 조건
-
-- /signup 경로에 회원가입 기능을 개발해주세요
-- /signin 경로에 로그인 기능을 개발해주세요
-- 페이지 안에 이메일 input, 비밀번호 input, 제출 button이 포함된 형태로 구성해주세요
-- 이메일 input에 data-testid="email-input" 속성을 부여해주세요
-- 패스워드 input에 data-testid="password-input" 속성을 부여해주세요
-- 회원가입 페이지에는 회원가입 button에 data-testid="signup-button" 속성을 부여해주세요
-- 로그인 페이지에는 로그인 button에 data-testid="signin-button" 속성을 부여해주세요
-
 ### Assignment 1
 
 - [x] 회원가입과 로그인 페이지에 이메일과 비밀번호의 유효성 검사기능을 구현해주세요
@@ -91,3 +81,7 @@
     - 취소버튼에는 data-testid="cancel-button" 속성을 부여해주세요
   - [x] 제출버튼을 누르면 수정한 내용을 제출해서 내용이 업데이트 될 수 있도록 해주세요
   - [x] 취소버튼을 누르면 수정한 내용을 초기화 하고, 수정모드를 비활성화 해주세요
+
+### 추가 수정 사항
+
+- [x] Home 컴포넌트 구현 및 라우터 적용
