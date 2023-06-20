@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../api/api';
 import useInput from '../../hooks/useInput';
+import Todo from '../components/Todo';
 
-function Todo() {
+function TodoList() {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,19 +35,6 @@ function Todo() {
     setTodos(response.data);
   };
 
-  const updateTodo = async (id, todo, isCompleted) => {
-    const response = await api.put(`/todos/${id}`, {
-      todo,
-      isCompleted: !isCompleted,
-    });
-    if (response.status === 200) getTodo();
-  };
-
-  const deleteTodo = async id => {
-    const response = await api.delete(`/todos/${id}`);
-    if (response.status === 204) getTodo();
-  };
-
   return (
     <>
       <form>
@@ -64,32 +52,12 @@ function Todo() {
         />
       </form>
       <ul>
-        {todos.map(todo => {
-          return (
-            <li key={todo.id}>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={todo.isCompleted}
-                  onClick={() =>
-                    updateTodo(todo.id, todo.todo, todo.isCompleted)
-                  }
-                />
-                <span>{todo.todo}</span>
-                <button data-testid="modify-button">수정</button>
-                <button
-                  data-testid="delete-button"
-                  onClick={() => deleteTodo(todo.id)}
-                >
-                  삭제
-                </button>
-              </label>
-            </li>
-          );
+        {todos.map(obj => {
+          return <Todo {...obj} />;
         })}
       </ul>
     </>
   );
 }
 
-export default Todo;
+export default TodoList;

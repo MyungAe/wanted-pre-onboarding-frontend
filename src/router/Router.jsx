@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Signup from '../UI/page/Signup';
 import Signin from '../UI/page/Signin';
-import Todo from '../UI/page/Todo';
+import TodoList from '../UI/page/TodoList';
 
 const Router = () => {
   return (
@@ -17,7 +17,7 @@ const Router = () => {
         />
         <Route
           path="/todo"
-          element={<Todo />}
+          element={<TodoList />}
         />
       </Routes>
     </BrowserRouter>
