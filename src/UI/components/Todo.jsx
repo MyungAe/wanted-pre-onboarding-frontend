@@ -26,7 +26,7 @@ function Todo({ id, isCompleted, todo }) {
 
   return (
     <>
-      <li key={id}>
+      <li>
         <label>
           <input
             type="checkbox"

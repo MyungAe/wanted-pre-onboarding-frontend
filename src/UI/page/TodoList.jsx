@@ -53,7 +53,12 @@ function TodoList() {
       </form>
       <ul>
         {todos.map(obj => {
-          return <Todo {...obj} />;
+          return (
+            <Todo
+              {...obj}
+              key={obj.id}
+            />
+          );
         })}
       </ul>
     </>
