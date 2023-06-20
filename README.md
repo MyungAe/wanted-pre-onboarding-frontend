@@ -4,7 +4,7 @@
 
 - 지원자의 성명 : 엄진식
 - 프로젝트 실행 방법 : glt clone - yarn - yarn start
-- 배포 링크 : https://myungae.github.io/wanted-pre-onboarding-frontend/
+- 배포 링크 : http://wanted-2306-homework.s3-website.ap-northeast-2.amazonaws.com/
 - 소감 : 공고를 너무 늦게 봤네요.. 기능만 후다닥 만들어봤습니다!!
 
 ### 사용한 라이브러리
