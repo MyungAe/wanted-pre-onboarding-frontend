@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useInput from '../../hooks/useInput';
 import { useNavigate } from 'react-router-dom';
 import api from '../../api/api';
@@ -24,6 +24,10 @@ function Signin() {
     e.preventDefault();
     post();
   };
+
+  useEffect(() => {
+    if (localStorage.getItem('access_token')) navigate('/todo');
+  }, []);
 
   return (
     <form>

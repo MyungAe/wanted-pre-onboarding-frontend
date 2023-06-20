@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useInput from '../../hooks/useInput';
 import { isCorrectAccount } from '../../util/validations';
 import api from '../../api/api';
@@ -23,6 +23,10 @@ function Signup() {
     e.preventDefault();
     post();
   };
+
+  useEffect(() => {
+    if (localStorage.getItem('access_token')) navigate('/todo');
+  }, []);
 
   return (
     <form>
