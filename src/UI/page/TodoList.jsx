@@ -3,6 +3,7 @@ import useInput from '../../hooks/useInput';
 import Todo from '../components/Todo';
 import useTodo from '../../hooks/useTodo';
 import { Post } from '../../api/api';
+import Navigate from '../components/navigate';
 
 function TodoList() {
   const [todos, getTodo] = useTodo();
@@ -15,6 +16,7 @@ function TodoList() {
 
   return (
     <>
+      <Navigate />
       <form>
         <input
           type="text"
