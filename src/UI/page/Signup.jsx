@@ -10,14 +10,18 @@ function Signup() {
 
   const navigate = useNavigate();
 
-  const post = async () => {
-    const response = await api.post('/auth/signup', {
-      email: id,
-      password: pw,
-    });
-
-    if (isSuccess(response.status)) navigate('/signin');
-  };
+  const post = async () =>
+    await api
+      .post('/auth/signup', {
+        email: id,
+        password: pw,
+      })
+      .then(response => {
+        if (isSuccess(response.status)) navigate('/signin');
+      })
+      .catch(error => {
+        alert(error.response.data.message);
+      });
 
   const onSubmitHandler = e => {
     e.preventDefault();
