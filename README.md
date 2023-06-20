@@ -72,7 +72,7 @@
 
 ### Assignment 8
 
-- [ ] TODO 우측에 수정버튼과 삭제 버튼을 만들어주세요
+- [x] TODO 우측에 수정버튼과 삭제 버튼을 만들어주세요
   - 수정 버튼에는 data-testid="modify-button" 속성을 부여해주세요
   - 삭제 버튼에는 data-testid="delete-button" 속성을 부여해주세요
 
